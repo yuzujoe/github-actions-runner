@@ -4,10 +4,14 @@ resource "aws_launch_template" "this" {
   instance_type = "t2.micro"
   # describe latest ami
   # aws ec2 describe-images --region ap-northeast-1 --query 'reverse(sort_by(Images, &CreationDate))[:1]' --owners amazon --filters 'Name=name,Values=amzn2-ami-hvm-2.0.*-x86_64-gp2' --output table
-  image_id      = "ami-0f27d081df46f326c"
+  image_id = "ami-0f27d081df46f326c"
 
   instance_market_options {
     market_type = "spot"
+  }
+
+  iam_instance_profile {
+    name = aws_iam_instance_profile.this.name
   }
 
   block_device_mappings {
