@@ -22,6 +22,8 @@ resource "aws_launch_template" "this" {
       volume_type           = "gp2"
     }
   }
+
+  user_data = filebase64("./userdata.sh")
 }
 
 resource "aws_security_group" "this" {
