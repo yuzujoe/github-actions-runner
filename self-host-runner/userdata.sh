@@ -8,7 +8,7 @@ su ec2-user -c 'curl -L https://github.com/actions/runner/releases/download/v2.2
 su ec2-user -c 'tar xzf $HOME/actions-runner/actions-runner-linux-x64-2.277.1.tar.gz -C $HOME/actions-runner'
 
 aws configure set region ap-northeast-1
-export ACCESS_TOKEN=$(aws secretsmanager get-secret-value --secret-id self-hosted-runner-token --query SecretString --output text | jq -r .GITHUB_ACCESS_TOKEN)
+export ACCESS_TOKEN=$(aws secretsmanager get-secret-value --secret-id ${your-token-id} --query SecretString --output text | jq -r .GITHUB_ACCESS_TOKEN)
 
 # Configure
 export RUNNER_TOKEN="$(curl -XPOST -fsSL \
