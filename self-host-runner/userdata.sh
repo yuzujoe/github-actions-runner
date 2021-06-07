@@ -17,7 +17,7 @@ curl -sL https://rpm.nodesource.com/setup_14.x | bash -
 yum -y install nodejs
 
 su ec2-user -c 'mkdir $HOME/actions-runner'
-su ec2-user -c 'curl -L https://github.com/actions/runner/releases/download/v2.277.1/actions-runner-linux-x64-2.277.1.tar.gz -o $HOME/actions-runner/actions-runner-linux-x64-2.277.1.tar.gz'
+su ec2-user -c 'curl -L https://github.com/actions/runner/releases/download/v2.278.0/actions-runner-linux-x64-2.278.0.tar.gz -o $HOME/actions-runner/actions-runner-linux-x64-2.278.0.tar.gz'
 su ec2-user -c 'tar xzf $HOME/actions-runner/actions-runner-linux-x64-2.277.1.tar.gz -C $HOME/actions-runner'
 
 aws configure set region ap-northeast-1
